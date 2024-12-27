@@ -22,17 +22,14 @@
 #### 🔒 **Automotive Cybersecurity Scenario Catalogs**
 - **Description:** Built security scenarios for automated driving systems using ASAM standards and the DYNA4 environment.
 - **Technologies:** OWASP ML Security, DYNA4, Python.
-- [View Repository](#)
 
 #### 💻 **API Gateway for Secure Transactions**
 - **Description:** Designed and implemented a secure API gateway for financial services.
 - **Technologies:** Spring Boot, PostgreSQL, OAuth 2.0.
-- [View Repository](#)
 
 #### 🤖 **Anomaly Detection in Cyber Systems**
 - **Description:** Developed an ML model to detect anomalies in network traffic.
 - **Technologies:** Python, Scikit-learn, TensorFlow.
-- [View Repository](#)
 
 ---
 
