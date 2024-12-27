@@ -45,6 +45,13 @@
 
 ---
 
+### 📖 About Me
+- Currently pursuing my degree at the **Faculty of Engineering, Alexandria University** in Alexandria, Egypt, majoring in **Computer and Communications Engineering** with a **Minor in AI**.
+- Passionate about languages and cultures; I speak **Spanish** alongside my native and professional languages.
+- Born and raised in **Saudi Arabia** pursuing **American System Education** while always being on the top of the class.
+
+---
+
 ### 📫 Let's Connect
 - [LinkedIn](https://www.linkedin.com/in/abdelrahman-abouroumia)
 - [Email](mailto:aabouroumia@gmail.com)
