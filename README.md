@@ -5,7 +5,7 @@
 ---
 
 🔐 **Passionate about securing the future with cutting-edge technology**
-- I specialize in **Automotive Cybersecurity**, having worked as an **Automotive Cybersecurity Intern** at **Swift-Act** during Summer 2024. My focus was on building security scenario catalogs and tackling emerging ML-based security challenges.
+- I specialize in **Cybersecurity**, having worked as an **Automotive Cybersecurity Intern** at **Swift-Act** during Summer 2024. My focus was on building security scenario catalogs and tackling emerging ML-based security challenges.
 - Skilled in backend development with expertise in **Spring Boot**, **Django REST Framework**, and crafting robust APIs.
 - Enthusiastically exploring how **Machine Learning** intersects with cybersecurity to tackle advanced threats in domains like automotive and beyond.
 
