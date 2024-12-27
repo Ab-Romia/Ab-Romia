@@ -12,7 +12,7 @@
 ---
 
 ### 🌟 Current Focus
-- **Cybersecurity:** Developing solutions for securing large language models (LLMs) and automotive systems using advanced techniques such as **DYNA4** and **Fuzzing**.
+- **Cybersecurity:** Developing solutions for securing large language models (LLMs) and automotive systems.
 - **Machine Learning:** Leveraging my minor in AI to explore ML-based security defenses, anomaly detection, and cutting-edge cybersecurity solutions.
 
 ---
