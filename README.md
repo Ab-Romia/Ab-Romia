@@ -14,10 +14,10 @@
 
 ```typescript
 const expertise = {
-    aiEngineering: ["RAG Architectures", "LLM Integrations", "Intelligent Agents"],
+    aiEngineering: ["RAG Architectures", "LLM Integrations", "Agentic AI Systems"],
+    aiAutomation: ["AI Workflow Automation", "OpenAI Integrations", "n8n Workflows"],
     scalableSystems: ["Distributed Backends", "High-Performance APIs", "Microservices"],
-    fullStackDevelopment: ["React Applications", "RESTful APIs", "Real-time Systems"],
-    cloudInfrastructure: ["AWS/GCP Deployment", "Containerization", "CI/CD Pipelines"]
+    fullStackDevelopment: ["React Applications", "RESTful APIs", "Real-time Systems"]
 };
 ```
 
@@ -39,6 +39,7 @@ const expertise = {
 ![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
 ![LlamaIndex](https://img.shields.io/badge/LlamaIndex-8B5CF6?style=for-the-badge&logo=llamaindex&logoColor=white)
 ![Ollama](https://img.shields.io/badge/Ollama-000000?style=for-the-badge&logo=ollama&logoColor=white)
+![n8n](https://img.shields.io/badge/n8n-EA4B71?style=for-the-badge&logo=n8n&logoColor=white)
 
 ### Web & Frontend
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
@@ -113,7 +114,7 @@ const expertise = {
 
 ## 💼 Currently
 
-Building AI systems that scale in production. Focused on RAG pipelines that handle real-world workloads and LLM integrations that deliver measurable impact.
+Building AI systems that scale in production. Specializing in RAG architectures, Agentic AI systems, and intelligent automation workflows that integrate seamlessly with existing infrastructure.
 
 ## 📫 Connect
 
