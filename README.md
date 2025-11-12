@@ -112,7 +112,18 @@ const expertise = {
 
 </div>
 
-## 💼 Currently
+## 💼 Experience
+
+**Applications Integration Software Engineering Intern** @ Ejada
+Building integration solutions and working with enterprise-level systems
+
+**Automotive Cybersecurity Intern** @ Swift Act
+Developing security solutions for automotive systems and embedded platforms
+
+**Freelance Developer**
+Delivering custom software solutions across AI, web development, and automation projects
+
+## 🎯 Currently
 
 Building AI systems that scale in production. Specializing in RAG architectures, Agentic AI systems, and intelligent automation workflows that integrate seamlessly with existing infrastructure.
 
