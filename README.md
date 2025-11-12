@@ -1,46 +1,118 @@
-## Abdelrahman Abouroumia
+<div align="center">
 
-AI Engineer building production-grade RAG systems and intelligent integrations.
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Abdelrahman%20Abouroumia&fontSize=42&fontAlignY=30&desc=AI%20Engineer%20%7C%20Building%20Intelligence%20at%20Scale&descAlignY=51&descSize=18&animation=twinkling" width="100%"/>
 
-### What I Build
+</div>
 
-**AI Engineering** → RAG architectures, LLM integrations, intelligent agents
-**Scalable Systems** → Distributed backends, APIs that handle real-world traffic
-**Full-Stack AI** → From model deployment to user-facing applications
+<div align="center">
 
-### Tech Stack
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&multiline=false&width=800&height=60&lines=Production-grade+RAG+systems+and+LLM+integrations;Scalable+AI+architectures+that+solve+real+problems;From+model+deployment+to+user-facing+applications)](https://git.io/typing-svg)
 
-**AI/ML Infrastructure**
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-![LangChain](https://img.shields.io/badge/LangChain-121212?style=flat&logo=chainlink&logoColor=white)
-![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat&logo=openai&logoColor=white)
-![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)
-![HuggingFace](https://img.shields.io/badge/HuggingFace-FFD21E?style=flat&logo=huggingface&logoColor=black)
+</div>
 
-**Backend & Databases**
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat&logo=postgresql&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat&logo=redis&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
+## 🎯 What I Build
 
-**Vector & Cloud**
-![Pinecone](https://img.shields.io/badge/Pinecone-000000?style=flat&logo=pinecone&logoColor=white)
-![Weaviate](https://img.shields.io/badge/Weaviate-00C7B7?style=flat&logo=weaviate&logoColor=white)
-![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat&logo=amazonaws&logoColor=white)
+```typescript
+const expertise = {
+    aiEngineering: ["RAG Architectures", "LLM Integrations", "Intelligent Agents"],
+    scalableSystems: ["Distributed Backends", "High-Performance APIs", "Cloud Infrastructure"],
+    fullStackAI: ["Model Deployment", "Vector Databases", "Production ML Pipelines"]
+};
+```
 
----
+## 🛠️ Tech Arsenal
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Ab-Romia&show_icons=true&theme=dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=1f6feb&text_color=c9d1d9)
+<div align="center">
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Ab-Romia&layout=compact&theme=dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9)
+### AI/ML Infrastructure
+![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+![Hugging Face](https://img.shields.io/badge/Hugging%20Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
 
----
+### Backend & Infrastructure
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
 
-### Currently
+### Vector Stores & Cloud
+![Pinecone](https://img.shields.io/badge/Pinecone-000000?style=for-the-badge&logo=pinecone&logoColor=white)
+![Weaviate](https://img.shields.io/badge/Weaviate-00C7B7?style=for-the-badge&logo=weaviate&logoColor=white)
+![ChromaDB](https://img.shields.io/badge/ChromaDB-FF6B6B?style=for-the-badge&logo=chromadb&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white)
+![GCP](https://img.shields.io/badge/GCP-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
 
-Building AI systems that actually scale. Working on RAG pipelines that handle production workloads and LLM integrations that solve real problems.
+</div>
 
-**Open to:** AI Engineering roles, technical collaborations, challenging problems
+## 📊 GitHub Analytics
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/your-profile)
-[![Email](https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:your.email@example.com)
+<div align="center">
+
+<img height="180em" src="https://github-readme-stats.vercel.app/api?username=Ab-Romia&show_icons=true&theme=github_dark&include_all_commits=true&count_private=true&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=1f6feb&text_color=c9d1d9&rank_icon=github"/>
+<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Ab-Romia&layout=compact&langs_count=8&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9"/>
+
+</div>
+
+<div align="center">
+
+[![GitHub Streak](https://streak-stats.demolab.com?user=Ab-Romia&theme=github-dark-blue&hide_border=true&background=0D1117&ring=58A6FF&fire=1F6FEB&currStreakLabel=C9D1D9)](https://git.io/streak-stats)
+
+</div>
+
+<div align="center">
+
+![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=Ab-Romia&theme=github-compact&hide_border=true&bg_color=0d1117&color=58a6ff&line=1f6feb&point=c9d1d9)
+
+</div>
+
+## 🏆 GitHub Trophies
+
+<div align="center">
+
+[![trophy](https://github-profile-trophy.vercel.app/?username=Ab-Romia&theme=darkhub&no-frame=true&no-bg=true&column=7&margin-w=15&margin-h=15)](https://github.com/ryo-ma/github-profile-trophy)
+
+</div>
+
+## 🐍 Contribution Snake
+
+<div align="center">
+
+![Snake animation](https://raw.githubusercontent.com/Ab-Romia/Ab-Romia/output/github-contribution-grid-snake-dark.svg)
+
+</div>
+
+## 💼 Currently
+
+Building AI systems that scale in production. Focused on RAG pipelines that handle real-world workloads and LLM integrations that deliver measurable impact.
+
+**Open to:**
+- AI Engineering roles
+- Technical collaborations on challenging problems
+- Open source contributions in AI/ML space
+
+## 📫 Connect
+
+<div align="center">
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/your-profile)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:your.email@example.com)
+[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://your-portfolio.com)
+
+</div>
+
+<div align="center">
+
+![Profile Views](https://komarev.com/ghpvc/?username=Ab-Romia&color=58a6ff&style=for-the-badge&label=PROFILE+VIEWS)
+
+</div>
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer" width="100%"/>
+
+</div>
