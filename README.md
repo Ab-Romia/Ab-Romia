@@ -101,7 +101,7 @@ const expertise = {
 Production-grade RAG pipeline that understands document context and delivers precise answers from your knowledge base.
 
 [![Try It](https://img.shields.io/badge/🤗_Try_Live-FFD21E?style=for-the-badge)](https://huggingface.co/spaces/Ab-Romia/Context-Aware-AI)
-[![GitHub](https://img.shields.io/badge/Source_Code-181717?style=for-the-badge&logo=github)](https://github.com/Ab-Romia/ContextIQ)
+[![GitHub](https://img.shields.io/badge/Source_Code-181717?style=for-the-badge&logo=github)](https://github.com/Ab-Romia/ContextIQ-RAG)
 
 </td>
 <td width="50%" valign="top">
@@ -125,7 +125,7 @@ Deep learning model trained on RAVDESS dataset — detects 8 emotions (neutral, 
 AI opponent that plays Connect4 using minimax algorithm with alpha-beta pruning. Can you beat it?
 
 [![Try It](https://img.shields.io/badge/🤗_Try_Live-FFD21E?style=for-the-badge)](https://huggingface.co/spaces/Ab-Romia/connect4-ai)
-[![GitHub](https://img.shields.io/badge/Source_Code-181717?style=for-the-badge&logo=github)](https://github.com/Ab-Romia/connect4-ai)
+[![GitHub](https://img.shields.io/badge/Source_Code-181717?style=for-the-badge&logo=github)](https://github.com/Ab-Romia/AI_Connect4_Agent)
 
 </td>
 <td width="50%" valign="top">
@@ -136,7 +136,7 @@ AI opponent that plays Connect4 using minimax algorithm with alpha-beta pruning.
 Solves any Sudoku using CSP with backtracking, AC-3, and MRV heuristics. Also generates puzzles at multiple difficulty levels.
 
 [![Try It](https://img.shields.io/badge/🤗_Try_Live-FFD21E?style=for-the-badge)](https://huggingface.co/spaces/Ab-Romia/sudoku-ai)
-[![GitHub](https://img.shields.io/badge/Source_Code-181717?style=for-the-badge&logo=github)](https://github.com/Ab-Romia/sudoku-ai)
+[![GitHub](https://img.shields.io/badge/Source_Code-181717?style=for-the-badge&logo=github)](https://github.com/Ab-Romia/Sudoku_CSP)
 
 </td>
 </tr>
