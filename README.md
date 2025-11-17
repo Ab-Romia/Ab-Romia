@@ -100,9 +100,9 @@ Production-grade RAG pipeline that understands document context and delivers pre
 <td width="50%" valign="top">
 
 ### 🎭 Speech Emotion Recognition
-**RAVDESS-trained emotion detection from audio**
+**RAVDESS-trained emotion detection from video**
 
-Deep learning model trained on RAVDESS dataset — detects 8 emotions (neutral, calm, happy, sad, angry, fearful, disgust, surprised) from speech.
+Deep learning model trained on RAVDESS dataset — detects 8 emotions (neutral, calm, happy, sad, angry, fearful, disgust, surprised) from videos.
 
 [![Try It](https://img.shields.io/badge/🤗_Try_Live-FFD21E?style=for-the-badge)](https://huggingface.co/spaces/Ab-Romia/RAVDESS-emotion-recognition)
 [![GitHub](https://img.shields.io/badge/Source_Code-181717?style=for-the-badge&logo=github)](https://github.com/Ab-Romia/RAVDESS-emotion-recognition)
