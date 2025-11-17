@@ -83,6 +83,65 @@ const expertise = {
 
 </div>
 
+## 🚀 Live AI Demos
+
+<div align="center">
+
+*Try these AI systems right now — no setup required*
+
+</div>
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 🧠 ContextIQ RAG System
+**Intelligent document Q&A with context-aware retrieval**
+
+Production-grade RAG pipeline that understands document context and delivers precise answers from your knowledge base.
+
+[![Try It](https://img.shields.io/badge/🤗_Try_Live-FFD21E?style=for-the-badge)](https://huggingface.co/spaces/Ab-Romia/Context-Aware-AI)
+[![GitHub](https://img.shields.io/badge/Source_Code-181717?style=for-the-badge&logo=github)](https://github.com/Ab-Romia/ContextIQ)
+
+</td>
+<td width="50%" valign="top">
+
+### 🎭 Speech Emotion Recognition
+**RAVDESS-trained emotion detection from audio**
+
+Deep learning model trained on RAVDESS dataset — detects 8 emotions (neutral, calm, happy, sad, angry, fearful, disgust, surprised) from speech.
+
+[![Try It](https://img.shields.io/badge/🤗_Try_Live-FFD21E?style=for-the-badge)](https://huggingface.co/spaces/Ab-Romia/RAVDESS-emotion-recognition)
+[![GitHub](https://img.shields.io/badge/Source_Code-181717?style=for-the-badge&logo=github)](https://github.com/Ab-Romia/RAVDESS-emotion-recognition)
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 🎮 Connect4 AI Agent
+**Intelligent game-playing agent using adversarial search**
+
+AI opponent that plays Connect4 using minimax algorithm with alpha-beta pruning. Can you beat it?
+
+[![Try It](https://img.shields.io/badge/🤗_Try_Live-FFD21E?style=for-the-badge)](https://huggingface.co/spaces/Ab-Romia/connect4-ai)
+[![GitHub](https://img.shields.io/badge/Source_Code-181717?style=for-the-badge&logo=github)](https://github.com/Ab-Romia/connect4-ai)
+
+</td>
+<td width="50%" valign="top">
+
+### 🧩 CSP Sudoku Solver & Generator
+**AI-powered puzzle solving with constraint satisfaction**
+
+Solves any Sudoku using CSP with backtracking, AC-3, and MRV heuristics. Also generates puzzles at multiple difficulty levels.
+
+[![Try It](https://img.shields.io/badge/🤗_Try_Live-FFD21E?style=for-the-badge)](https://huggingface.co/spaces/Ab-Romia/sudoku-ai)
+[![GitHub](https://img.shields.io/badge/Source_Code-181717?style=for-the-badge&logo=github)](https://github.com/Ab-Romia/sudoku-ai)
+
+</td>
+</tr>
+</table>
+
 ## 📊 GitHub Analytics
 
 <div align="center">
@@ -94,7 +153,7 @@ const expertise = {
 
 <div align="center">
 
-[![GitHub Streak](https://streak-stats.demolab.com?user=Ab-Romia&theme=github-dark-blue&hide_border=true&background=0D1117&ring=58A6FF&fire=1F6FEB&currStreakLabel=C9D1D9)](https://git.io/streak-stats)
+[![GitHub Streak](https://streak-stats.demolab.com?user=Ab-Romia&theme=github-dark-blue&hide_border=true&background=0D1117&ring=58A6FF&fire=1F6FEB&currStreakLabel=C9D1D9&date_format=M%20j%5B%2C%20Y%5D)](https://git.io/streak-stats)
 
 </div>
 
