@@ -121,8 +121,7 @@ NLP-powered system that learns your unique writing voice from samples and transf
 [![Try It](https://img.shields.io/badge/🤗_Try_Live-FFD21E?style=for-the-badge)](https://huggingface.co/spaces/Ab-Romia/voiceprint-humanizer)
 [![GitHub](https://img.shields.io/badge/Source_Code-181717?style=for-the-badge&logo=github)](https://github.com/Ab-Romia/Style-Echo-AI-Humanizer)
 
-</td>
-<td width="50%" valign="top">
+</td> <td width="50%" valign="top">
 
 
 ### 🎮 Connect4 AI Agent
@@ -133,8 +132,7 @@ AI opponent that plays Connect4 using minimax algorithm with alpha-beta pruning.
 [![Try It](https://img.shields.io/badge/🤗_Try_Live-FFD21E?style=for-the-badge)](https://huggingface.co/spaces/Ab-Romia/connect4-ai)
 [![GitHub](https://img.shields.io/badge/Source_Code-181717?style=for-the-badge&logo=github)](https://github.com/Ab-Romia/AI_Connect4_Agent)
 
-</td>
-<td width="50%" valign="top">
+</td> </tr> <tr> <td width="50%" valign="top">
 
 ### 🧩 CSP Sudoku Solver & Generator
 **AI-powered puzzle solving with constraint satisfaction**
@@ -144,9 +142,16 @@ Solves any Sudoku using CSP with backtracking, AC-3, and MRV heuristics. Also ge
 [![Try It](https://img.shields.io/badge/🤗_Try_Live-FFD21E?style=for-the-badge)](https://huggingface.co/spaces/Ab-Romia/sudoku-ai)
 [![GitHub](https://img.shields.io/badge/Source_Code-181717?style=for-the-badge&logo=github)](https://github.com/Ab-Romia/Sudoku_CSP)
 
-</td>
-</tr>
-</table>
+</td> <td width="50%" valign="top">
+
+### 🔮 More Coming Soon
+**New AI demos in development**
+
+Currently building more intelligent systems. Stay tuned for upcoming releases!
+
+[![Check](https://img.shields.io/badge/🤗_Try_Live-FFD21E?style=for-the-badge)]
+</td> </tr> </table>
+
 
 ## 📊 GitHub Analytics
 
