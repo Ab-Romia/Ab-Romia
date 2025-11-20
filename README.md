@@ -99,6 +99,7 @@ Production-grade RAG pipeline that understands document context and delivers pre
 </td>
 <td width="50%" valign="top">
 
+
 ### 🎭 Speech Emotion Recognition
 **RAVDESS-trained emotion detection from video**
 
@@ -111,6 +112,18 @@ Deep learning model trained on RAVDESS dataset — detects 8 emotions (neutral, 
 </tr>
 <tr>
 <td width="50%" valign="top">
+
+### 🎯 VoicePrint AI Humanizer
+**Transform AI text to match your writing style**
+
+NLP-powered system that learns your unique writing voice from samples and transforms AI-generated text to match your style while bypassing detection.
+
+[![Try It](https://img.shields.io/badge/🤗_Try_Live-FFD21E?style=for-the-badge)](https://huggingface.co/spaces/Ab-Romia/voiceprint-humanizer)
+[![GitHub](https://img.shields.io/badge/Source_Code-181717?style=for-the-badge&logo=github)](https://github.com/Ab-Romia/Style-Echo-AI-Humanizer)
+
+</td>
+<td width="50%" valign="top">
+
 
 ### 🎮 Connect4 AI Agent
 **Intelligent game-playing agent using adversarial search**
