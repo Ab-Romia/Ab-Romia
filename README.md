@@ -73,7 +73,7 @@ Production hierarchical multi-agent architecture using LangGraph. Supervisor age
 
 **Tech Stack:** LangGraph, GPT-4o, FastAPI, PostgreSQL, Qdrant, LangSmith, n8n
 
-[![GitHub](https://img.shields.io/badge/Source_Code-181717?style=for-the-badge&logo=github)](https://github.com/Ab-Romia/ZAYLON)
+[![GitHub](https://img.shields.io/badge/Source_Code-181717?style=for-the-badge&logo=github)](https://github.com/Ab-Romia/Zaylon-Capstone)
 
 </td>
 <td width="50%" valign="top">
