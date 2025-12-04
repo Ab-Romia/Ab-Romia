@@ -20,7 +20,7 @@
 
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&multiline=false&width=900&height=60&lines=Production+AI+systems+deployed+on+HuggingFace+and+Render;Multi-agent+architectures+with+LangGraph+%7C+RAG+pipelines+with+11%2B+file+formats;Building+intelligent+systems+that+solve+real+business+problems)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&multiline=false&width=900&height=60&lines=Production+AI+systems+deployed+on+HuggingFace+and+Render;Multi-agent+architectures+with+LangGraph+and+RAG+pipelines;Building+intelligent+systems+that+solve+real+business+problems)](https://git.io/typing-svg)
 
 </div>
 
@@ -52,7 +52,7 @@ const expertise = {
     backendSystems: [
         "RESTful APIs and distributed systems",
         "OAuth2 security and authentication",
-        "PostgreSQL query optimization (<200ms latency)"
+        "PostgreSQL query optimization (sub-200ms latency)"
     ]
 };
 ```
