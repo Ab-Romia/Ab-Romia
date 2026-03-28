@@ -1,8 +1,8 @@
-# Abdelrahman Abouroumia
+# Abdelrahman Abouroumia (Romia)
 
 AI Engineer and Co-Founder of [Zaylon AI](https://zaylon.ai). I build multi-agent systems, production RAG pipelines, and the backend infrastructure that powers them.
 
-### [romia.dev](https://romia.dev) &mdash; portfolio, projects, and demos
+### [romia.dev](https://romia.dev) // portfolio, projects, and demos
 
 ---
 
