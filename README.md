@@ -53,12 +53,6 @@ Tri-lingual NLP (English, Egyptian Arabic, Franco-Arabic). 6 e-commerce platform
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=Ab-Romia&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=00d4ff&icon_color=00d4ff&text_color=c9d1d9&rank_icon=github" height="165" alt="GitHub Stats" />
-&nbsp;&nbsp;
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Ab-Romia&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=00d4ff&text_color=c9d1d9&langs_count=6&hide=jupyter%20notebook" height="165" alt="Top Languages" />
-
-<br><br>
-
 <img src="https://streak-stats.demolab.com?user=Ab-Romia&theme=github-dark-blue&hide_border=true&background=0D1117&ring=00D4FF&fire=00D4FF&currStreakLabel=C9D1D9" alt="GitHub Streak" />
 
 </div>
