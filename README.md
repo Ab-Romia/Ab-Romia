@@ -15,7 +15,7 @@ Co-Founder of [Zaylon AI](https://zaylon.ai)
 </div>
 
 ```
-▸ building    Zaylon AI — multi-agent commerce across WhatsApp/Instagram for MENA
+▸ building    Zaylon AI · multi-agent commerce across WhatsApp/Instagram for MENA
 ▸ focus       LangGraph architectures, production RAG, multilingual NLP
 ▸ stack       Python · FastAPI · Supabase · Redis · pgvector · Next.js · Docker
 ```
@@ -24,7 +24,7 @@ Co-Founder of [Zaylon AI](https://zaylon.ai)
 
 ### Flagship
 
-**[Zaylon AI](https://zaylon.ai)** — Production multi-tenant conversational commerce platform
+**[Zaylon AI](https://zaylon.ai)** · Production multi-tenant conversational commerce platform
 
 `LangGraph` `FastAPI` `Supabase` `pgvector` `Redis` `GPT-4o` `Next.js` `Docker`
 
@@ -35,19 +35,19 @@ Tri-lingual NLP (English, Egyptian Arabic, Franco-Arabic). 6 e-commerce platform
 
 ### Selected Projects
 
-**[ContextIQ RAG](https://github.com/Ab-Romia/ContextIQ-RAG)** — Production RAG API supporting 11+ file formats with hybrid search<br>
+**[ContextIQ RAG](https://github.com/Ab-Romia/ContextIQ-RAG)** · Production RAG API supporting 11+ file formats with hybrid search<br>
 `FastAPI` `ChromaDB` `LangChain` `Python` · [▸ live demo](https://huggingface.co/spaces/Ab-Romia/Context-Aware-AI)
 
-**[Virtual Banking](https://github.com/Ab-Romia/Virtual-Bank-System)** — Event-driven microservices with async Kafka messaging<br>
+**[Virtual Banking](https://github.com/Ab-Romia/Virtual-Bank-System)** · Event-driven microservices with async Kafka messaging<br>
 `Spring Boot` `Kafka` `Java` `PostgreSQL` `Docker`
 
-**[Emotion Recognition](https://github.com/Ab-Romia/RAVDESS-emotion-recognition)** — Cross-modal attention fusing HuBERT audio + EfficientNet visual encoders<br>
+**[Emotion Recognition](https://github.com/Ab-Romia/RAVDESS-emotion-recognition)** · Cross-modal attention fusing HuBERT audio + EfficientNet visual encoders<br>
 `PyTorch` `HuBERT` `EfficientNet` · [▸ live demo](https://huggingface.co/spaces/Ab-Romia/RAVDESS-emotion-recognition)
 
-**[VoicePrint](https://github.com/Ab-Romia/Style-Echo-AI-Humanizer)** — Style transfer via Sentence-BERT embeddings and stylometric analysis<br>
+**[VoicePrint](https://github.com/Ab-Romia/Style-Echo-AI-Humanizer)** · Style transfer via Sentence-BERT embeddings and stylometric analysis<br>
 `NLP` `Sentence-BERT` `Python` · [▸ live demo](https://huggingface.co/spaces/Ab-Romia/voiceprint-humanizer)
 
-**[Connect4 AI](https://romia.dev/projects/connect4-ai)** · **[Sudoku CSP Solver](https://romia.dev/projects/sudoku-solver)** — Playable browser demos on my portfolio
+**[Connect4 AI](https://romia.dev/projects/connect4-ai)** · **[Sudoku CSP Solver](https://romia.dev/projects/sudoku-solver)** · Playable browser demos on my portfolio
 
 ---
 
