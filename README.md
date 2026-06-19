@@ -1,19 +1,31 @@
 # Abdelrahman Abouroumia
 
-Co-founder at [Zaylon AI](https://zaylon.ai), a multi-agent commerce platform serving merchants across WhatsApp, Instagram, and Messenger.
+AI Engineer and co-founder of [Zaylon AI](https://zaylon.ai). I build production AI agents and RAG systems on a full-stack backend.
 
-[romia.dev](https://romia.dev) · [resume](https://romia.dev/resume.pdf) · [linkedin](https://linkedin.com/in/abdelrahman-abouroumia) · aabouroumia@gmail.com
+[romia.dev](https://romia.dev) &nbsp;·&nbsp; [Resume](https://romia.dev/resume.pdf) &nbsp;·&nbsp; [LinkedIn](https://linkedin.com/in/abdelrahman-abouroumia) &nbsp;·&nbsp; [Hugging Face](https://huggingface.co/Ab-Romia) &nbsp;·&nbsp; aabouroumia@gmail.com
 
 ---
 
+### Skills
+
+```text
+skills
+├── ai/ml      LangGraph · LangChain · PyTorch · RAG · multi-agent systems · NLP · reranking
+├── backend    FastAPI · Spring Boot · microservices · Kafka · REST · PostgreSQL · Redis
+├── data       Milvus · ChromaDB · pgvector · BM25 · ONNX
+├── frontend   React · Next.js · TypeScript · Tailwind CSS
+├── languages  Python · Java · JavaScript/TypeScript · SQL · C/C++
+└── devops     Docker · Git · GitHub Actions · CI/CD · Linux
+```
+
 ### Selected work
 
-**[Zaylon AI](https://zaylon.ai)** &nbsp;·&nbsp; Production multi-agent conversational commerce platform. Supervisor-pattern LangGraph architecture, tri-lingual NLP, 6 e-commerce integrations, 3 payment providers.
+| Project | What it is | Stack |
+| --- | --- | --- |
+| **[Zaylon AI](https://zaylon.ai)** | Conversational-commerce AI that carries a customer from first question to paid order as one LangGraph tool-calling agent, with tri-lingual NLP (English, Egyptian Arabic, Franco-Arabic) on a multi-tenant backend. | LangGraph · FastAPI · PostgreSQL |
+| **[ContextIQ](https://github.com/Ab-Romia/ContextIQ-RAG)** | Hybrid-retrieval RAG on CPU: dense and BM25 retrieval fused with reciprocal rank fusion, then cross-encoder reranking, grounded citations, and an evaluation harness. [Demo](https://huggingface.co/spaces/Ab-Romia/Context-Aware-AI). | FastAPI · ONNX · ChromaDB |
+| **[Virtual Banking](https://github.com/Ab-Romia/Virtual-Bank-System)** | Event-driven microservices: a Kafka transfer saga with a transactional outbox, idempotent consumers, and RS256 JWT zero-trust across five Spring Boot services. | Spring Boot 3 · Kafka · Java 21 |
+| **[Emotion Recognition](https://github.com/Ab-Romia/RAVDESS-emotion-recognition)** | Speaker-independent speech emotion recognition: a frozen WavLM encoder fused with a facial-expression model through calibrated late fusion. [Demo](https://huggingface.co/spaces/Ab-Romia/RAVDESS-emotion-recognition). | PyTorch · WavLM |
+| **[VoicePrint](https://github.com/Ab-Romia/VoicePrint)** | Authorship stylometry: a StyleDistance style embedding plus interpretable function-word features that measure a writing voice and adapt a draft toward it. | Python · NLP |
 
-**[ContextIQ](https://github.com/Ab-Romia/ContextIQ-RAG)** &nbsp;·&nbsp; RAG API with hybrid search across 11+ file formats. [Live demo](https://huggingface.co/spaces/Ab-Romia/Context-Aware-AI).
-
-**[Virtual Banking](https://github.com/Ab-Romia/Virtual-Bank-System)** &nbsp;·&nbsp; Event-driven microservices platform. Spring Boot, Kafka, async messaging, OAuth2.
-
-**[Multimodal Emotion Recognition](https://github.com/Ab-Romia/RAVDESS-emotion-recognition)** &nbsp;·&nbsp; Cross-modal attention fusing HuBERT audio and EfficientNet visual encoders. [Demo](https://huggingface.co/spaces/Ab-Romia/RAVDESS-emotion-recognition).
-
-**[Algorithmic browser demos](https://romia.dev)** &nbsp;·&nbsp; [Connect4](https://romia.dev/projects/connect4-ai) with minimax and alpha-beta pruning. [Sudoku CSP solver](https://romia.dev/projects/sudoku-solver) with AC-3 and MRV heuristic. Both run client-side.
+Case studies, architecture write-ups, and live demos at **[romia.dev](https://romia.dev)**.
