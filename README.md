@@ -1,6 +1,6 @@
 # Abdelrahman Abouroumia
 
-AI Engineer and co-founder of [Zaylon AI](https://zaylon.ai). I build production AI agents and RAG systems on a full-stack backend.
+AI Engineer and co-founder of [Zaylon AI](https://zaylon.ai). I build production AI agents and RAG systems on a full-stack backend. I hold a B.Sc. in Computer and Communications Engineering (AI concentration) from Alexandria University.
 
 [romia.dev](https://romia.dev) &nbsp;·&nbsp; [Resume](https://romia.dev/resume.pdf) &nbsp;·&nbsp; [LinkedIn](https://linkedin.com/in/abdelrahman-abouroumia) &nbsp;·&nbsp; [Hugging Face](https://huggingface.co/Ab-Romia) &nbsp;·&nbsp; aabouroumia@gmail.com
 
