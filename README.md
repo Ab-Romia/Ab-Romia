@@ -51,7 +51,6 @@ skills
 ├── backend     FastAPI · Spring Boot · Kafka · microservices
 ├── retrieval   Milvus · ChromaDB · pgvector · BM25 · ONNX
 ├── data        PostgreSQL · Redis
-├── frontend    Next.js · TypeScript
 ├── languages   Python · Java · TypeScript · SQL · C/C++
 └── devops      Docker · GitHub Actions · CI/CD · Linux · Railway
 ```
