@@ -6,7 +6,7 @@ AI & Backend Engineer. Co-founder of [Zaylon AI](https://zaylon.ai). I build bac
 
 ---
 
-## Agents and retrieval
+## AI agents and RAG
 
 **[Zaylon AI](https://zaylon.ai)** &nbsp; `LangGraph · FastAPI · PostgreSQL · Redis · Docker`
 
