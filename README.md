@@ -49,8 +49,7 @@ skills
 ├── ai          LLM agents · RAG · MCP · LangGraph · LangChain
 ├── ml          PyTorch · embeddings · reranking · evaluation
 ├── backend     FastAPI · Spring Boot · Kafka · microservices
-├── retrieval   Milvus · ChromaDB · pgvector · BM25 · ONNX
-├── data        PostgreSQL · Redis
+├── data        PostgreSQL · pgvector · Redis · Milvus · ChromaDB
 ├── languages   Python · Java · TypeScript · SQL · C/C++
 └── devops      Docker · GitHub Actions · CI/CD · Linux · Railway
 ```
