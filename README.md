@@ -1,6 +1,6 @@
 # Abdelrahman Abouroumia
 
-AI & Backend Engineer. Co-founder of [Zaylon AI](https://zaylon.ai). I build backend systems, and the retrieval and agent layers that run on top of them. B.Sc. in Computer and Communications Engineering with an AI concentration from Alexandria University, graduated July 2026.
+AI & Backend Engineer. Co-founder of [Zaylon AI](https://zaylon.ai). I build backend systems, and the retrieval and agent layers that run on top of them. B.Sc. in Computer and Communications Engineering with an AI concentration from Alexandria University.
 
 [romia.dev](https://romia.dev) &nbsp;·&nbsp; [Resume](https://romia.dev/resume.pdf) &nbsp;·&nbsp; [LinkedIn](https://linkedin.com/in/abdelrahman-abouroumia) &nbsp;·&nbsp; [Hugging Face](https://huggingface.co/Ab-Romia) &nbsp;·&nbsp; [aabouroumia@gmail.com](mailto:aabouroumia@gmail.com)
 
