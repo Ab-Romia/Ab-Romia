@@ -46,7 +46,8 @@ The portfolio itself is open source at [Ab-Romia/romia.dev](https://github.com/A
 
 ```text
 skills
-├── ai/ml       LangGraph · LangChain · PyTorch · RAG · reranking
+├── ai          LLM agents · RAG · LangGraph · LangChain
+├── ml          PyTorch · embeddings · reranking · evaluation
 ├── backend     FastAPI · Spring Boot · Kafka · microservices
 ├── retrieval   Milvus · ChromaDB · pgvector · BM25 · ONNX
 ├── data        PostgreSQL · Redis
