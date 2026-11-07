@@ -1,5 +1,5 @@
-"""Draw assets/neofetch.svg: a terminal that runs `neofetch`, with a dot
-portrait printed from tools/portrait.txt and the facts beside it.
+"""Draw assets/neofetch.svg: a terminal that runs `neofetch`, with a dotted
+R where neofetch would print its logo, and the facts beside it.
 
 Text is set as outlines from the fonts in tools/fonts. GitHub serves this
 file with a policy that blocks web fonts, and outlines render the same
@@ -12,6 +12,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from fontTools.pens.boundsPen import BoundsPen
+from fontTools.pens.pointInsidePen import PointInsidePen
 from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.pens.transformPen import TransformPen
 from fontTools.ttLib import TTFont
@@ -20,7 +22,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 BG, EDGE, RULE, DOT = "#0d0e11", "#26282d", "#1d1f23", "#2c2e33"
 TEXT, DIM, ACCENT = "#e6e3dc", "#6f6c66", "#6b8aff"
-# The portrait's four tones, darkest to brightest, all from the accent.
+# The logo's four tones, darkest to brightest, all from the accent.
 TONES = ["#2f3b73", "#4a5cb3", "#6b8aff", "#b4c3ff"]
 SWATCHES = ["#2c2e33", "#4a4d55", "#8f8c85", "#e6e3dc", *TONES]
 
@@ -80,23 +82,32 @@ def text(parts: list[tuple[str, str]], size: float, x: float, y: float) -> str:
     return "".join(out)
 
 
-def portrait(x0: float, y0: float, cell: float) -> tuple[str, float]:
-    """The dot portrait: bigger and brighter dots for lighter tones, grouped
-    by colour. Returns the markup and its height."""
-    rows = (ROOT / "tools" / "portrait.txt").read_text().splitlines()
+def logo(x0: float, y0: float, height: float, cell: float) -> tuple[str, float]:
+    """An R in the poster face of romia.dev, printed as dots: a dot wherever a
+    grid point falls inside the letter, brightest at the top. Returns the
+    markup and its width."""
+    font = TTFont(ROOT / "tools" / "fonts" / "archivo-125-900.woff")
+    glyphs = font.getGlyphSet()
+    glyph = glyphs[font.getBestCmap()[ord("R")]]
+    bounds = BoundsPen(glyphs)
+    glyph.draw(bounds)
+    left, bottom, right, top = bounds.bounds
+    rows = round(height / cell)
+    unit = (top - bottom) / rows  # font units per grid step
+    cols = round((right - left) / unit)
     groups: list[list[str]] = [[] for _ in TONES]
-    for y, row in enumerate(rows):
-        for x, ch in enumerate(row):
-            if ch == " ":
+    for y in range(rows):
+        for x in range(cols):
+            probe = PointInsidePen(glyphs, (left + (x + 0.5) * unit, top - (y + 0.5) * unit))
+            glyph.draw(probe)
+            if not probe.getResult():
                 continue
-            t = int(ch) / 9
-            r = cell / 2 * (0.15 + 0.85 * t) ** 0.9
-            if r < 0.45:
-                continue
+            t = 1 - 0.7 * y / rows
             groups[min(3, int(t * 4))].append(
-                f'<circle cx="{num(x0 + (x + 0.5) * cell)}" cy="{num(y0 + (y + 0.5) * cell)}" r="{num(r)}"/>')
+                f'<circle cx="{num(x0 + (x + 0.5) * cell)}" cy="{num(y0 + (y + 0.5) * cell)}" '
+                f'r="{num(cell * 0.5 * (0.35 + 0.6 * t))}"/>')
     markup = "".join(f'<g fill="{tone}">{"".join(dots)}</g>' for tone, dots in zip(TONES, groups))
-    return markup, len(rows) * cell
+    return markup, cols * cell
 
 
 def neofetch() -> str:
@@ -120,15 +131,17 @@ def neofetch() -> str:
              f'width="{num(cw)}" height="16" fill="{TEXT}"/></g>')
     typed = t0 + len(cmd) * 0.075 + 0.2
 
-    # The output: the portrait on the left, printed top to bottom, the facts
+    # The output: the logo on the left, printed top to bottom, the facts
     # beside it.
-    top, cell = 116, 4.9
-    dots, tall = portrait(X, top, cell)
+    top, block = 116, 360  # the facts run about this tall
+    tall, cell = 256, 6.4
+    ly = top + (block - tall) / 2 - 12  # the logo, centred on the facts
+    dots, wide = logo(X + 16, ly, tall, cell)
     b.append(dots)
-    b.append(f'<rect class="cover print" x="{X - 4}" y="{top - 4}" width="{num(72 * cell + 8)}" '
+    b.append(f'<rect class="cover print" x="{X + 12}" y="{num(ly - 4)}" width="{num(wide + 8)}" '
              f'height="{num(tall + 8)}" fill="{BG}"/>')
 
-    ix = X + 72 * cell + 44
+    ix = X + 16 + wide + 56
     info = [text([("romia", ACCENT), ("@", TEXT), ("github", ACCENT)], size, ix, top + 16),
             text([("-" * 12, DIM)], size, ix, top + 16 + lead)]
     key_w = max(len(k) for k, _ in FACTS) + 2
@@ -142,7 +155,7 @@ def neofetch() -> str:
     b.append(f'<g class="out">{"".join(info)}</g>')
 
     # A fresh prompt, and a cursor that keeps blinking.
-    py = top + tall + 44
+    py = top + block + 44
     b.append(f'<g class="out end">{text([("$ ", ACCENT)], size, X, py)}<rect class="blink" x="{num(cx)}" '
              f'y="{num(py - 12.5)}" width="{num(cw)}" height="16" fill="{TEXT}"/></g>')
     H = round(py + 28)
@@ -164,7 +177,7 @@ def neofetch() -> str:
         "@keyframes hide{from{opacity:1}to{opacity:0}}"
         "@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}"
     )
-    title = ("A terminal runs neofetch for Romia (Abdelrahman Abouroumia): a dot portrait of him in a bucket hat, "
+    title = ("A terminal runs neofetch for Romia (Abdelrahman Abouroumia): a dotted R as the logo, "
              "and beside it: " + "; ".join(f"{k}: {v}" for k, v in FACTS) + ".")
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" '
             f'role="img" aria-labelledby="title"><title id="title">{title}</title><style>{style}</style>'

@@ -1,5 +1,5 @@
 <p>
-  <img src="assets/neofetch.svg" width="100%" alt="A terminal runs neofetch for Romia (Abdelrahman Abouroumia): a dot portrait of him in a bucket hat, and beside it: OS: Backend and AI systems engineer; Host: Tutanic, Software Engineer; Startup: Zaylon AI, co-founder; Kernel: Python, TypeScript, Java, SQL; Packages: FastAPI, Django, LangGraph, CopilotKit, MCP; Streams: NATS JetStream, Kafka; Data: Postgres, PgBouncer, Dragonfly, Redis, S3; Cloud: AWS, Bedrock, Kubernetes, Helm; Locale: en, ar-EG, de, es; Won: micro1 Best Demonstrated Improvement, advisorydrift; Contact: romia.dev.">
+  <img src="assets/neofetch.svg" width="100%" alt="A terminal runs neofetch for Romia (Abdelrahman Abouroumia): a dotted R as the logo, and beside it: OS: Backend and AI systems engineer; Host: Tutanic, Software Engineer; Startup: Zaylon AI, co-founder; Kernel: Python, TypeScript, Java, SQL; Packages: FastAPI, Django, LangGraph, CopilotKit, MCP; Streams: NATS JetStream, Kafka; Data: Postgres, PgBouncer, Dragonfly, Redis, S3; Cloud: AWS, Bedrock, Kubernetes, Helm; Locale: en, ar-EG, de, es; Won: micro1 Best Demonstrated Improvement, advisorydrift; Contact: romia.dev.">
 </p>
 
 #### `~/now`
