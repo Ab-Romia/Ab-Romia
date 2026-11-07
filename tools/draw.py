@@ -1,44 +1,42 @@
-"""Draw the header card on this profile, in a light and a dark version.
+"""Draw assets/neofetch.svg: a terminal that runs `neofetch`, with a dot
+portrait printed from tools/portrait.txt and the facts beside it.
 
-Text is set as outlines from the fonts in tools/fonts, so the card renders the
-same everywhere with no web fonts to load. Type and colours match romia.dev.
+Text is set as outlines from the fonts in tools/fonts. GitHub serves this
+file with a policy that blocks web fonts, and outlines render the same
+everywhere. The terminal is the one on romia.dev, dark in either theme.
 
-    python3 tools/draw.py        (needs fontTools and Pillow)
+    python3 tools/draw.py        (needs fontTools)
 """
 
 from __future__ import annotations
 
-import base64
-import io
-from dataclasses import dataclass
 from pathlib import Path
 
 from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.pens.transformPen import TransformPen
 from fontTools.ttLib import TTFont
-from PIL import Image, ImageFilter, ImageOps
 
 ROOT = Path(__file__).resolve().parent.parent
-TOOLS = ROOT / "tools"
 
+BG, EDGE, RULE, DOT = "#0d0e11", "#26282d", "#1d1f23", "#2c2e33"
+TEXT, DIM, ACCENT = "#e6e3dc", "#6f6c66", "#6b8aff"
+# The portrait's four tones, darkest to brightest, all from the accent.
+TONES = ["#2f3b73", "#4a5cb3", "#6b8aff", "#b4c3ff"]
+SWATCHES = ["#2c2e33", "#4a4d55", "#8f8c85", "#e6e3dc", *TONES]
 
-@dataclass(frozen=True)
-class Theme:
-    name: str
-    bg: str
-    fg: str
-    muted: str
-    border: str
-    accent: str
-    photo_ink: str      # what the darkest parts of the photo become
-    photo_paper: str    # what the lightest parts become
-    photo_strength: float
-
-
-DARK = Theme("dark", "#0a0b0d", "#eceae4", "#9a978f", "#222327", "#6b8aff",
-             photo_ink="#0a0b0d", photo_paper="#aab8f2", photo_strength=0.42)
-LIGHT = Theme("light", "#f2f0eb", "#111111", "#5f5c55", "#d9d5cc", "#1f2bff",
-              photo_ink="#2a3170", photo_paper="#f2f0eb", photo_strength=0.3)
+FACTS = [
+    ("OS", "Backend and AI systems engineer"),
+    ("Host", "Tutanic, Software Engineer"),
+    ("Startup", "Zaylon AI, co-founder"),
+    ("Kernel", "Python, TypeScript, Java, SQL"),
+    ("Packages", "FastAPI, Django, LangGraph, CopilotKit, MCP"),
+    ("Streams", "NATS JetStream, Kafka"),
+    ("Data", "Postgres, PgBouncer, Dragonfly, Redis, S3"),
+    ("Cloud", "AWS, Bedrock, Kubernetes, Helm"),
+    ("Locale", "en, ar-EG, de, es"),
+    ("Won", "micro1 Best Demonstrated Improvement, advisorydrift"),
+    ("Contact", "romia.dev"),
+]
 
 
 def num(v: float) -> str:
@@ -46,163 +44,139 @@ def num(v: float) -> str:
     return s[:-2] if s.endswith(".0") else s
 
 
-class Face:
-    """A static font instance, set as SVG path data with its own kerning."""
+class Mono:
+    """JetBrains Mono, set as SVG path data. Monospaced, so no kerning."""
 
     def __init__(self, file: str):
-        font = TTFont(TOOLS / "fonts" / file)
+        font = TTFont(ROOT / "tools" / "fonts" / file)
         self.glyphs = font.getGlyphSet()
         self.cmap = font.getBestCmap()
         self.upm = font["head"].unitsPerEm
-        self.advance = {name: adv for name, (adv, _) in font["hmtx"].metrics.items()}
-        self.pairs = []
-        gpos = font["GPOS"].table
-        kern = {i for r in gpos.FeatureList.FeatureRecord if r.FeatureTag == "kern"
-                for i in r.Feature.LookupListIndex}
-        for i in sorted(kern):
-            lookup = gpos.LookupList.Lookup[i]
-            for st in lookup.SubTable:
-                if lookup.LookupType == 9 and st.ExtensionLookupType == 2:
-                    self.pairs.append(st.ExtSubTable)
-                elif lookup.LookupType == 2:
-                    self.pairs.append(st)
+        self.advance = font["hmtx"][self.cmap[ord("0")]][0] / self.upm  # every glyph is this wide, in ems
 
-    def kern(self, a: str, b: str) -> int:
-        for st in self.pairs:
-            if a not in st.Coverage.glyphs:
-                continue
-            if st.Format == 1:
-                for rec in st.PairSet[st.Coverage.glyphs.index(a)].PairValueRecord:
-                    if rec.SecondGlyph == b:
-                        return getattr(rec.Value1, "XAdvance", 0) or 0
-            else:
-                c1 = st.ClassDef1.classDefs.get(a, 0)
-                c2 = st.ClassDef2.classDefs.get(b, 0)
-                value = st.Class1Record[c1].Class2Record[c2].Value1
-                if value is not None and getattr(value, "XAdvance", 0):
-                    return value.XAdvance
-        return 0
+    def width(self, s: str, size: float) -> float:
+        return len(s) * self.advance * size
 
-    def layout(self, s: str, size: float, tracking: float):
-        """Each glyph's name and pen position, and where the run ends."""
-        names = [self.cmap.get(ord(ch), ".notdef") for ch in s]
-        scale, x, placed = size / self.upm, 0.0, []
-        for i, name in enumerate(names):
-            placed.append((name, x))
-            x += self.advance[name] * scale
-            if i + 1 < len(names):
-                x += tracking * size + self.kern(name, names[i + 1]) * scale
-        return placed, x
-
-    def width(self, s: str, size: float, tracking: float = 0.0) -> float:
-        return self.layout(s, size, tracking)[1]
-
-    def path(self, s: str, size: float, x: float, y: float, tracking: float = 0.0) -> str:
+    def path(self, s: str, size: float, x: float, y: float) -> str:
         scale = size / self.upm
         pen = SVGPathPen(self.glyphs, ntos=num)
-        for name, dx in self.layout(s, size, tracking)[0]:
-            self.glyphs[name].draw(TransformPen(pen, (scale, 0, 0, -scale, x + dx, y)))
+        for i, ch in enumerate(s):
+            if ch != " ":
+                pos = (scale, 0, 0, -scale, x + i * self.advance * size, y)
+                self.glyphs[self.cmap.get(ord(ch), ".notdef")].draw(TransformPen(pen, pos))
         return pen.getCommands()
 
 
-DISPLAY = Face("archivo-118-800.woff")
-SANS = Face("archivo-100-400.woff")
-MONO = Face("jetbrains-mono-400.woff")
-MONO_MEDIUM = Face("jetbrains-mono-500.woff")
+MONO = Mono("jetbrains-mono-400.woff")
 
 
-def text(face: Face, parts: list[tuple[str, str]], size: float, x: float, y: float,
-         tracking: float = 0.0, anchor: str = "start") -> tuple[str, float]:
-    """Coloured runs on one baseline. Returns the markup and where it ends."""
-    if anchor == "end":
-        x -= sum(face.width(s, size, tracking) for s, _ in parts)
+def text(parts: list[tuple[str, str]], size: float, x: float, y: float) -> str:
+    """Coloured runs on one baseline."""
     out = []
     for s, fill in parts:
-        out.append(f'<path fill="{fill}" d="{face.path(s, size, x, y, tracking)}"/>')
-        x += face.width(s, size, tracking)
-    return "".join(out), x
+        if s.strip():
+            out.append(f'<path fill="{fill}" d="{MONO.path(s, size, x, y)}"/>')
+        x += MONO.width(s, size)
+    return "".join(out)
 
 
-def photo(theme: Theme, w: int, h: int) -> str:
-    """The portrait as on romia.dev: black and white with a hint of the accent,
-    blurred, and quiet enough to sit behind type. Returns base64 JPEG."""
-    im = Image.open(TOOLS / "portrait.jpg").convert("L")
-    src_w, src_h = im.size
-    crop_h = round(src_w * h / w)
-    top = round((src_h - crop_h) * 0.3)  # hold the face about a third down
-    im = im.crop((0, top, src_w, top + crop_h)).resize((w, h), Image.LANCZOS)
-    im = ImageOps.autocontrast(im, cutoff=1).filter(ImageFilter.GaussianBlur(12))
-    im = ImageOps.colorize(im, black=theme.photo_ink, white=theme.photo_paper)
-    im = Image.blend(Image.new("RGB", (w, h), theme.bg), im, theme.photo_strength)
-    buf = io.BytesIO()
-    im.save(buf, "JPEG", quality=78, optimize=True, progressive=True)
-    return base64.b64encode(buf.getvalue()).decode()
+def portrait(x0: float, y0: float, cell: float) -> tuple[str, float]:
+    """The dot portrait: bigger and brighter dots for lighter tones, grouped
+    by colour. Returns the markup and its height."""
+    rows = (ROOT / "tools" / "portrait.txt").read_text().splitlines()
+    groups: list[list[str]] = [[] for _ in TONES]
+    for y, row in enumerate(rows):
+        for x, ch in enumerate(row):
+            if ch == " ":
+                continue
+            t = int(ch) / 9
+            r = cell / 2 * (0.15 + 0.85 * t) ** 0.9
+            if r < 0.45:
+                continue
+            groups[min(3, int(t * 4))].append(
+                f'<circle cx="{num(x0 + (x + 0.5) * cell)}" cy="{num(y0 + (y + 0.5) * cell)}" r="{num(r)}"/>')
+    markup = "".join(f'<g fill="{tone}">{"".join(dots)}</g>' for tone, dots in zip(TONES, groups))
+    return markup, len(rows) * cell
 
 
-def medal(x: float, y: float, size: float, stroke: str) -> str:
-    """Lucide's "award" icon, drawn on a 24-unit grid."""
-    return (f'<g transform="translate({num(x)} {num(y)}) scale({size / 24:.3f})" fill="none" '
-            f'stroke="{stroke}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
-            '<circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></g>')
+def neofetch() -> str:
+    W, X, size, lead = 1080, 36, 15.5, 25
+    cw = MONO.width("0", size)
+    b: list[str] = []
 
+    # Title bar, as on romia.dev.
+    b.append(f'<line x1="0" x2="{W}" y1="40" y2="40" stroke="{RULE}"/>')
+    for i in range(3):
+        b.append(f'<circle cx="{20 + i * 17}" cy="20" r="5" fill="{DOT}"/>')
+    b.append(text([("romia@github: ~", "#8f8c85")], 13, 78, 24.5))
 
-def header(t: Theme) -> str:
-    W, H, X = 1200, 420, 60
-    px = 500  # where the photo starts; it fades in from here
-    b = [
-        "<defs>",
-        f'<clipPath id="card"><rect width="{W}" height="{H}" rx="16"/></clipPath>',
-        # A long, eased fade: a short one lets the bright sky in the photo
-        # switch on as a visible edge.
-        '<linearGradient id="fade">'
-        '<stop offset="0.08" stop-color="#000"/><stop offset="0.25" stop-color="#121212"/>'
-        '<stop offset="0.4" stop-color="#404040"/><stop offset="0.55" stop-color="#8c8c8c"/>'
-        '<stop offset="0.7" stop-color="#d9d9d9"/><stop offset="0.82" stop-color="#fff"/></linearGradient>',
-        f'<mask id="soft"><rect x="{px}" width="{W - px}" height="{H}" fill="url(#fade)"/></mask>',
-        "</defs>",
-        '<g clip-path="url(#card)">',
-        f'<rect width="{W}" height="{H}" fill="{t.bg}"/>',
-        f'<image x="{px}" width="{W - px}" height="{H}" mask="url(#soft)" '
-        f'href="data:image/jpeg;base64,{photo(t, W - px, H)}"/>',
-        "</g>",
-    ]
+    # The command, typed: a cover slides off it one character at a time,
+    # carrying the cursor.
+    cmd, cmd_y, t0 = "neofetch", 84, 0.5
+    cx = X + 2 * cw
+    b.append(text([("$ ", ACCENT), (cmd, TEXT)], size, X, cmd_y))
+    b.append(f'<g class="cover type"><rect x="{num(cx)}" y="{cmd_y - 18}" width="{num((len(cmd) + 1) * cw)}" '
+             f'height="{lead}" fill="{BG}"/><rect class="caret" x="{num(cx)}" y="{num(cmd_y - 12.5)}" '
+             f'width="{num(cw)}" height="16" fill="{TEXT}"/></g>')
+    typed = t0 + len(cmd) * 0.075 + 0.2
 
-    b.append(text(MONO, [("ABDELRAHMAN ABOUROUMIA (ROMIA)", t.muted)], 17, X, 72, tracking=0.12)[0])
-    b.append(text(MONO_MEDIUM, [("romia.dev ↗", t.fg)], 17, W - X, 72, anchor="end")[0])
+    # The output: the portrait on the left, printed top to bottom, the facts
+    # beside it.
+    top, cell = 116, 4.9
+    dots, tall = portrait(X, top, cell)
+    b.append(dots)
+    b.append(f'<rect class="cover print" x="{X - 4}" y="{top - 4}" width="{num(72 * cell + 8)}" '
+             f'height="{num(tall + 8)}" fill="{BG}"/>')
 
-    size, track = 86, -0.03
-    b.append(text(DISPLAY, [("Backend and ", t.fg), ("AI", t.accent)], size, X, 178, track)[0])
-    line, end = text(DISPLAY, [("systems", t.accent), (" engineer.", t.fg)], size, X, 264, track)
-    b.append(line)
-    # The block cursor from the terminal on romia.dev: the card's only motion.
-    cw, ch = 0.42 * size, 0.72 * size
-    b.append(f'<rect class="cursor" x="{num(end + 0.08 * size)}" y="{num(264 - ch)}" '
-             f'width="{num(cw)}" height="{num(ch)}" fill="{t.accent}">'
-             '<animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1.1s" '
-             'repeatCount="indefinite"/></rect>')
+    ix = X + 72 * cell + 44
+    info = [text([("romia", ACCENT), ("@", TEXT), ("github", ACCENT)], size, ix, top + 16),
+            text([("-" * 12, DIM)], size, ix, top + 16 + lead)]
+    key_w = max(len(k) for k, _ in FACTS) + 2
+    for i, (key, value) in enumerate(FACTS):
+        line = f"{key}:".ljust(key_w)
+        assert MONO.width(line + value, size) < W - ix - X, value
+        info.append(text([(line, ACCENT), (value, TEXT)], size, ix, top + 16 + lead * (i + 2)))
+    sy = top + 16 + lead * (len(FACTS) + 2) - 4
+    for i, colour in enumerate(SWATCHES):
+        info.append(f'<rect x="{num(ix + i * 3 * cw)}" y="{sy}" width="{num(3 * cw)}" height="18" fill="{colour}"/>')
+    b.append(f'<g class="out">{"".join(info)}</g>')
 
-    b.append(text(SANS, [("Software Engineer at Tutanic", t.fg), ("   ·   ", t.muted),
-                         ("Co-founder of Zaylon AI", t.fg)], 23, X, 326)[0])
-    b.append(medal(X - 1, 344, 20, t.accent))
-    b.append(text(MONO_MEDIUM, [("BEST DEMONSTRATED IMPROVEMENT · MICRO1 FRONTIER ENGINEERING CHALLENGE 2026",
-                                 t.accent)], 14.5, X + 28, 360, tracking=0.06)[0])
+    # A fresh prompt, and a cursor that keeps blinking.
+    py = top + tall + 44
+    b.append(f'<g class="out end">{text([("$ ", ACCENT)], size, X, py)}<rect class="blink" x="{num(cx)}" '
+             f'y="{num(py - 12.5)}" width="{num(cw)}" height="16" fill="{TEXT}"/></g>')
+    H = round(py + 28)
 
-    b.append(f'<rect x="0.5" y="0.5" width="{W - 1}" height="{H - 1}" rx="15.5" fill="none" stroke="{t.border}"/>')
-
-    title = ("Abdelrahman Abouroumia (Romia). Backend and AI systems engineer. Software Engineer at Tutanic, "
-             "co-founder of Zaylon AI. Best Demonstrated Improvement, micro1 Frontier Engineering Challenge 2026.")
+    reveal = 0.6
+    style = (
+        ".cover{display:none}"
+        "@media (prefers-reduced-motion:no-preference){"
+        ".cover{display:inline}"
+        f".type{{animation:type {len(cmd) * 0.075:.3f}s steps({len(cmd)},end) {t0}s both}}"
+        f".caret{{animation:hide 1ms linear {typed:.2f}s both}}"
+        f".out{{animation:show 1ms linear {typed:.2f}s both}}"
+        f".end{{animation-delay:{typed + reveal + 0.2:.2f}s}}"
+        f".print{{animation:print {reveal}s steps(24,end) {typed:.2f}s both,hide 1ms linear {typed + reveal:.2f}s forwards}}"
+        ".blink{animation:blink 1.1s linear infinite}}"
+        f"@keyframes type{{to{{transform:translateX({num(len(cmd) * cw)}px)}}}}"
+        f"@keyframes print{{to{{transform:translateY({num(tall + 8)}px)}}}}"
+        "@keyframes show{from{opacity:0}to{opacity:1}}"
+        "@keyframes hide{from{opacity:1}to{opacity:0}}"
+        "@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}"
+    )
+    title = ("A terminal runs neofetch for Romia (Abdelrahman Abouroumia): a dot portrait of him in a bucket hat, "
+             "and beside it: " + "; ".join(f"{k}: {v}" for k, v in FACTS) + ".")
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" '
-            f'role="img" aria-labelledby="title"><title id="title">{title}</title>'
-            "<style>@media (prefers-reduced-motion: reduce){.cursor{display:none}}</style>"
+            f'role="img" aria-labelledby="title"><title id="title">{title}</title><style>{style}</style>'
+            f'<rect x="0.5" y="0.5" width="{W - 1}" height="{H - 1}" rx="14" fill="{BG}" stroke="{EDGE}"/>'
             + "".join(b) + "</svg>\n")
 
 
 def main() -> None:
-    (ROOT / "assets").mkdir(exist_ok=True)
-    for theme in (DARK, LIGHT):
-        out = ROOT / "assets" / f"header-{theme.name}.svg"
-        out.write_text(header(theme))
-        print(f"{out.relative_to(ROOT)}  {out.stat().st_size / 1024:.0f} KB")
+    out = ROOT / "assets" / "neofetch.svg"
+    out.parent.mkdir(exist_ok=True)
+    out.write_text(neofetch())
+    print(f"{out.relative_to(ROOT)}  {out.stat().st_size / 1024:.0f} KB")
 
 
 if __name__ == "__main__":
